@@ -71,6 +71,7 @@ h1{font-size:clamp(3.3rem,6.6vw,5.5rem);letter-spacing:-.065em;font-weight:550;l
 .project-card:hover{transform:translateY(-2px);border-color:#bcb7c4;box-shadow:0 9px 24px #18181b08}.project-card.skill-match{border-color:var(--accent-ink);box-shadow:0 0 0 2px var(--accent-soft)}
 .project-body{padding:28px}.project-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px;color:var(--muted)}.project-meta .eyebrow{font-size:.63rem;letter-spacing:.1em}.project-index{color:#777780;font:.7rem var(--mono)}
 .project-card h3{font-size:1.53rem;letter-spacing:-.04em;font-weight:600;max-width:390px}.project-summary{margin-top:13px;color:var(--muted);font-size:.87rem}.project-result{margin-top:20px;font-size:.8rem;color:var(--muted)}.project-result strong{color:var(--ink);font-weight:650}.project-body .tag-row{margin-top:20px}
+.release-link{margin-top:8px;color:var(--accent-ink);font-size:.78rem}
 .system{margin:0 28px 26px;padding:18px;border:1px solid var(--line);background:var(--soft);border-radius:8px}.system figcaption{color:var(--muted);margin-bottom:17px;font:.6rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.12em}
 .flow{display:flex;gap:8px;align-items:center;margin:0;padding:0;list-style:none}.flow li{flex:1;position:relative;text-align:center;font-size:.67rem;font-weight:550;line-height:1.45;padding:11px 4px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
 .flow li+li::before{content:"→";position:absolute;left:-9px;top:50%;transform:translateY(-50%);font:.7rem var(--mono);color:var(--muted)}.flow li:last-child{background:var(--accent-soft);border-color:#d9cce9}
@@ -219,6 +220,7 @@ body{font-size:10pt}.wrap{width:100%}.site-header,.skip-link,.hero-actions,.proj
 <h3 id="soundboy-title">SoundBoy</h3>
 <p class="project-summary">An independently built real-time audio processing &amp; control system: multiple streams, modular local ML processing, and failure-aware operation on Apple Silicon.</p>
 <p class="project-result"><strong>~165 ms p95</strong> processing time per 500 ms RVC input interval</p>
+<a class="text-link release-link" href="https://github.com/MotibAlanazi/SoundBoy/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">View SoundBoy release <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
 <div class="tag-row"><span class="tag">Swift</span><span class="tag">Python</span><span class="tag">Core Audio</span><span class="tag">PyTorch</span></div></div>
 <!-- Replace with SoundBoy application screenshot when available. -->
 <figure class="system"><figcaption>Audio architecture / processing path</figcaption><ol class="flow"><li>Audio<br>sources</li><li>Bounded<br>buffers</li><li>Processing<br>engines</li><li>Mixing /<br>routing</li><li>Output</li></ol><div class="control-rail">Source controls · persistent state · failure handling</div></figure>
@@ -227,6 +229,20 @@ body{font-size:10pt}.wrap{width:100%}.site-header,.skip-link,.hero-actions,.proj
 <h4>Modular interfaces</h4><p>Native hardware interfaces communicate with local machine-learning and voice-conversion processing through a versioned interprocess protocol. Processing engines can be replaced without redesigning the control application.</p>
 <h4>Resources and failure handling</h4><ul><li>Overload detection, device-change recovery, failure-safe shutdown behavior, and automatic resource cleanup.</li><li>Persistent processing workers; expensive models loaded only when needed, with one voice-conversion model active at a time.</li><li>Avoids unnecessary disk writes.</li></ul>
 <h4>Performance validation</h4><p>Measured approximately 165 ms p95 processing time per 500 ms RVC input interval. Testing included sustained runs, processing time, memory consumption, startup delay, end-to-end behavior, and failure testing. This figure describes processing time, not end-to-end latency.</p>
+</div></details></article>
+
+<article class="project-card" id="project-ps5" data-skills="" aria-labelledby="ps5-title">
+<div class="project-body"><div class="project-meta"><span class="eyebrow">Console companion / capture hardware</span><span class="project-index">P—05</span></div>
+<h3 id="ps5-title">PS5 Companion</h3>
+<p class="project-summary">A free, open-source app that brings PS5 gameplay video and audio to a Mac or Windows PC through an HDMI capture device, with picture controls and low-latency color rendering.</p>
+<p class="project-result"><strong>Console-to-computer setup</strong> with monitor passthrough and portable-display use</p>
+<a class="text-link release-link" href="https://github.com/MotibAlanazi/PS5-Companion/releases/tag/v4.2.0" target="_blank" rel="noopener noreferrer">View PS5 Companion release <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+<div class="tag-row"><span class="tag">Swift</span><span class="tag">HDMI capture</span><span class="tag">Hardware</span><span class="tag">Low latency</span><span class="tag">Color profiles</span><span class="tag">Open source</span></div></div>
+<figure class="system"><figcaption>PS5 capture and display path</figcaption><ol class="flow" aria-label="PS5 to capture device to companion app to passthrough monitor"><li>PS5<br>console</li><li>HDMI<br>capture</li><li>Companion<br>Mac / PC</li><li>Monitor<br>passthrough</li></ol><div class="control-rail">Picture settings · color profiles · low-latency rendering</div></figure>
+<details class="technical-details"><summary>Technical Details<span class="sr-only"> — PS5 Companion</span></summary><div class="details-content">
+<h4>Capture and display</h4><p>Uses an HDMI capture device to show PS5 gameplay video and audio on a Mac or Windows PC. Capture-device passthrough can also send the gameplay image to a connected monitor.</p>
+<h4>Picture and portability</h4><p>Color profiles and picture settings help tune the captured image. The app is designed for responsive performance and low-latency color rendering; practical performance depends on the capture hardware. Paired with a capture device and computer, it can also serve as a portable display setup for a PS5.</p>
+<h4>Availability</h4><p>Free and open source.</p>
 </div></details></article>
 </div></div></section>
 
@@ -354,20 +370,26 @@ translate('#project-sparky .project-meta .eyebrow', 'كيمياء كهربائي
 translate('#project-optical .project-meta .eyebrow', 'تصميم أجهزة وتحليل');
 translate('#project-hydrogel .project-meta .eyebrow', 'مواد وبحث مخبري');
 translate('#project-soundboy .project-meta .eyebrow', 'أنظمة تعمل في الوقت الفعلي وبنية النظام');
+translate('#project-ps5 .project-meta .eyebrow', 'تطبيق مرافق للألعاب وعتاد الالتقاط');
 translate('#sparky-title', 'مركبة AIChE Chem-E-Car<br>«Sparky»');
 translate('#optical-title', 'جهاز التحليل الطيفي<br>البصري المحمول');
 translate('#hydrogel-title', 'هيدروجيل PEDOT:PSS<br>الموصّل');
 translate('#project-soundboy .project-summary', 'مشروع مستقل لمعالجة عدة مسارات صوتية في الوقت الفعلي، مع نماذج ML محلية، وبنية مرنة، وآليات للتعامل مع الأعطال على أجهزة Apple Silicon.');
+translate('#project-ps5 .project-summary', 'تطبيق مجاني ومفتوح المصدر يعرض صورة PS5 وصوته على Mac أو Windows عبر بطاقة التقاط HDMI، مع إعدادات للصورة وملفات للألوان ومعالجة سريعة بزمن استجابة منخفض.');
 translate('#project-sparky .project-summary', 'شاركت مع الفريق في تطوير واختبار سيارة تعمل بالطاقة الكيميائية، ببطارية زنك قلوية ونظام إيقاف يعتمد على تفاعل كيميائي وقراءة ضوئية.');
 translate('#project-optical .project-summary', 'صممت وبنيت الجهاز كاملاً: الدائرة الإلكترونية، والحاوية المطبوعة ثلاثياً، والمعايرة، وجمع البيانات، والتحليل باستخدام Python.');
 translate('#project-hydrogel .project-summary', 'دعمت مشروع تخرج في الهندسة الكيميائية يدرس هيدروجيل PEDOT:PSS الموصّل وتطبيقاته في إعادة التأهيل العصبي.');
 translate('#project-sparky .project-result', '<strong>المركز الأول</strong> — مسابقة AIChE الإقليمية لـ Chem-E-Car');
 translate('#project-optical .project-result', '<strong>مشروع فردي</strong> — من بناء الجهاز إلى تحليل البيانات');
 translate('#project-soundboy .project-result', '<strong>~165 ms عند p95</strong> لمعالجة مقطع RVC بطول 500 ms');
+translate('#project-ps5 .project-result', '<strong>من جهاز PS5 إلى الكمبيوتر</strong> مع تمرير الصورة إلى شاشة خارجية وإمكانية استخدامه كشاشة محمولة');
+translate('#project-soundboy .release-link', 'عرض إصدار SoundBoy <span aria-hidden="true">↗</span><span class="sr-only"> (يفتح في علامة تبويب جديدة)</span>');
+translate('#project-ps5 .release-link', 'عرض إصدار PS5 Companion <span aria-hidden="true">↗</span><span class="sr-only"> (يفتح في علامة تبويب جديدة)</span>');
 translate('#project-sparky .tag', ['مشروع فريق', 'بطارية زنك', 'قياس ضوئي', 'Arduino']);
 translate('#project-optical .tag', ['Arduino Nano', 'Python', 'CAD / الطباعة ثلاثية الأبعاد']);
 translate('#project-hydrogel .tag', ['SU-8 2000', 'مجهر', 'NeuronJ', 'Excel']);
 translate('#project-soundboy .tag', ['Swift', 'Python', 'Core Audio', 'PyTorch']);
+translate('#project-ps5 .tag', ['Swift', 'التقاط HDMI', 'عتاد', 'زمن استجابة منخفض', 'ملفات ألوان', 'مفتوح المصدر']);
 translate('#project-sparky figcaption', 'كيف يعمل نظام الإيقاف');
 translate('#project-optical figcaption', 'من بناء الجهاز إلى تحليل النتائج');
 translate('#project-soundboy figcaption', 'مسار معالجة الصوت');
@@ -376,6 +398,9 @@ translate('#project-soundboy .flow li', ['مصادر<br>الصوت', 'ذاكرة
 translate('#project-optical .workflow li', ['تصميم الجهاز', 'تركيب الدائرة', 'عزل الضوء', 'جمع البيانات', 'المعايرة', 'تحليل Python']);
 translate('#project-optical .workflow-note', '→ تفسير النتائج كيميائياً');
 translate('#project-soundboy .control-rail', 'تحكم بالمصادر · حفظ الحالة · التعامل مع الأعطال');
+translate('#project-ps5 figcaption', 'مسار التقاط صورة PS5 وعرضها');
+translate('#project-ps5 .flow li', ['جهاز<br>PS5', 'بطاقة<br>التقاط HDMI', 'التطبيق<br>Mac / PC', 'تمرير إلى<br>الشاشة']);
+translate('#project-ps5 .control-rail', 'إعدادات الصورة · ملفات الألوان · عرض بزمن استجابة منخفض');
 translate('.technical-details > summary', 'التفاصيل التقنية');
 
 translate('#project-sparky .details-content h4', ['دوري في الفريق', 'نظام الطاقة', 'نظام الإيقاف', 'السلامة والاختبار']);
@@ -409,6 +434,12 @@ translate('#project-soundboy .details-content > p', [
   'بلغ زمن المعالجة نحو 165 ms عند p95 لكل مقطع RVC بطول 500 ms. اختبرت النظام في تشغيل طويل، وراقبت زمن المعالجة، واستهلاك الذاكرة، ووقت بدء التشغيل، وسلوك النظام عند الأعطال. هذا الرقم لزمن المعالجة فقط، وليس التأخير الكامل من الإدخال إلى الإخراج.'
 ]);
 translate('#project-soundboy .details-content li', ['يرصد الحمل الزائد، ويتعامل مع تغيّر أجهزة الصوت، ويغلق بأمان عند الفشل، ويحرر الموارد تلقائياً.', 'تظل عمليات المعالجة جاهزة، ولا تُحمّل النماذج الكبيرة إلا عند الحاجة، مع تشغيل نموذج واحد لتحويل الصوت في كل مرة.', 'يتجنب الكتابة على القرص عندما لا تكون هناك حاجة لها.']);
+translate('#project-ps5 .details-content h4', ['الالتقاط والعرض', 'الصورة وقابلية التنقل', 'التوفر']);
+translate('#project-ps5 .details-content p', [
+  'يستخدم بطاقة التقاط HDMI لعرض صورة ألعاب PS5 وصوتها على جهاز Mac أو كمبيوتر Windows. ويمكن تمرير الصورة من بطاقة الالتقاط إلى شاشة خارجية.',
+  'تتيح ملفات الألوان وإعدادات الصورة ضبط مظهر الصورة الملتقطة. صُمم التطبيق ليعمل باستجابة سريعة مع تقليل التأخير في معالجة الألوان، لكن الأداء الفعلي يعتمد على إمكانات بطاقة الالتقاط. وعند استخدامه مع بطاقة الالتقاط والكمبيوتر، يمكن إعداد PS5 كشاشة محمولة.',
+  'التطبيق مجاني ومفتوح المصدر.'
+]);
 
 translate('#experience .section-label', 'الخبرة العملية');
 translate('#experience-title', 'تشخيص الأجهزة،<br>إدارة العمل، وقيادة الفريق.');
